@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="http://gndclouds.cc/feed.xml" rel="self" type="application/atom+xml" /><link href="http://gndclouds.cc/" rel="alternate" type="text/html" /><updated>2019-01-29T23:58:17+00:00</updated><id>http://gndclouds.cc/feed.xml</id><title type="html">gndclouds</title><subtitle>hi.
+</subtitle><author><name>William Felker</name></author><entry><title type="html">Sensor Quick Start: PMS5003</title><link href="http://gndclouds.cc/sensor-PMS5003/" rel="alternate" type="text/html" title="Sensor Quick Start: PMS5003" /><published>2019-01-21T00:00:00+00:00</published><updated>2019-01-21T00:00:00+00:00</updated><id>http://gndclouds.cc/PMS5003</id><content type="html" xml:base="http://gndclouds.cc/sensor-PMS5003/">&lt;p&gt;2019 15
+PMS5003&lt;/p&gt;
+
+&lt;p&gt;#Resources&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.adafruit.com/product/3686&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://go.particle.io/shared_apps/5c479d5bfb74343ca5001db6&quot;&gt;Particle App&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>William Felker</name></author><summary type="html">2019 15 PMS5003</summary></entry><entry><title type="html">Sensor Quick Start: MQ-135</title><link href="http://gndclouds.cc/sensor-mq-135/" rel="alternate" type="text/html" title="Sensor Quick Start: MQ-135" /><published>2019-01-17T00:00:00+00:00</published><updated>2019-01-17T00:00:00+00:00</updated><id>http://gndclouds.cc/mq-135</id><content type="html" xml:base="http://gndclouds.cc/sensor-mq-135/">&lt;p&gt;2019 15&lt;/p&gt;
+
+&lt;p&gt;#include “MQ135.h”&lt;/p&gt;
+
+&lt;p&gt;int number = 0;
+int state = 0;
+MQ135 gasSensor = MQ135(0);
+int led = D7;
+float rzero = gasSensor.getRZero();
+int ppm = gasSensor.getPPM();&lt;/p&gt;
+
+&lt;p&gt;// SETUP
+void setup() {
+    	Serial.begin(9600);
+	Serial.println(“MQ135 test!”);&lt;/p&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;p&gt;// LOOP
+void loop() {&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;float rzero = gasSensor.getRZero();
+digitalWrite(led,HIGH);             // turn the ledPin on
+delay(100);                         // stop the program for some time
+digitalWrite(led, LOW);             // turn the ledPin off
+delay(100);                         // stop the program for some time
+
+int co2_ppm = gasSensor.getPPM();
+int ppm = co2_ppm / 4;
+
+//Print Over Serial
+
+Serial.println(ppm);
+Serial.println(Time.timeStr());
+
+
+//Publish to Pparticle Cloud
+//Spark.variable(&quot;ppm&quot;, &amp;amp;ppm, INT);
+
+delay(10000);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;p&gt;#Resources&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://components101.com/sensors/mq135-gas-sensor-for-air-quality&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://go.particle.io/shared_apps/5c3bc978758f82cd70000fff&quot;&gt;Particle App&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>William Felker</name></author><summary type="html">2019 15</summary></entry><entry><title type="html">publishing</title><link href="http://gndclouds.cc/journal/2019/01/12/5-particle-publish-and-subscribe.html" rel="alternate" type="text/html" title="publishing" /><published>2019-01-12T00:00:00+00:00</published><updated>2019-01-12T00:00:00+00:00</updated><id>http://gndclouds.cc/journal/2019/01/12/5-particle-publish-and-subscribe</id><content type="html" xml:base="http://gndclouds.cc/journal/2019/01/12/5-particle-publish-and-subscribe.html">&lt;p&gt;2019 01&lt;/p&gt;</content><author><name>William Felker</name></author><summary type="html">2019 01</summary></entry><entry><title type="html">50w led</title><link href="http://gndclouds.cc/journal/2019/01/12/50Watt-Led-Lamp.html" rel="alternate" type="text/html" title="50w led" /><published>2019-01-12T00:00:00+00:00</published><updated>2019-01-12T00:00:00+00:00</updated><id>http://gndclouds.cc/journal/2019/01/12/50Watt-Led-Lamp</id><content type="html" xml:base="http://gndclouds.cc/journal/2019/01/12/50Watt-Led-Lamp.html">&lt;p&gt;50W Lamp&lt;/p&gt;</content><author><name>William Felker</name></author><summary type="html">50W Lamp</summary></entry><entry><title type="html">2019 01</title><link href="http://gndclouds.cc/journal/2019/01/01/now.html" rel="alternate" type="text/html" title="2019 01" /><published>2019-01-01T00:00:00+00:00</published><updated>2019-01-01T00:00:00+00:00</updated><id>http://gndclouds.cc/journal/2019/01/01/now</id><content type="html" xml:base="http://gndclouds.cc/journal/2019/01/01/now.html">&lt;p&gt;2019 01&lt;/p&gt;
+
+&lt;h1 id=&quot;-watched&quot;&gt;📽 Watched&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;&lt;a href=&quot;&quot;&gt; &lt;/a&gt;&lt;/em&gt; by &lt;em&gt;&lt;a href=&quot;&quot;&gt; &lt;/a&gt;&lt;/em&gt;
+&lt;em&gt;&lt;a href=&quot;&quot;&gt; &lt;/a&gt;&lt;/em&gt; by &lt;em&gt;&lt;a href=&quot;&quot;&gt; &lt;/a&gt;&lt;/em&gt;
+&lt;em&gt;&lt;a href=&quot;&quot;&gt; &lt;/a&gt;&lt;/em&gt; by &lt;em&gt;&lt;a href=&quot;&quot;&gt; &lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;-reading&quot;&gt;📚 Reading&lt;/h1&gt;
+&lt;p&gt;Started
+&lt;em&gt;&lt;a href=&quot;&quot;&gt;Quantum Touch&lt;/a&gt;&lt;/em&gt; by &lt;em&gt;&lt;a href=&quot;&quot;&gt; &lt;/a&gt;&lt;/em&gt;
+&lt;em&gt;&lt;a href=&quot;&quot;&gt;The Three-Body Problem&lt;/a&gt;&lt;/em&gt; by &lt;em&gt;&lt;a href=&quot;&quot;&gt; &lt;/a&gt;&lt;/em&gt;
+&lt;em&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/em&gt; by &lt;em&gt;&lt;a href=&quot;&quot;&gt; &lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Finished:
+&lt;em&gt;&lt;a href=&quot;&quot;&gt;Stubborn Attachments&lt;/a&gt;&lt;/em&gt; by &lt;em&gt;&lt;a href=&quot;&quot;&gt; &lt;/a&gt;&lt;/em&gt;
+&lt;em&gt;&lt;a href=&quot;&quot;&gt;How we Got to Now&lt;/a&gt;&lt;/em&gt; by &lt;em&gt;&lt;a href=&quot;&quot;&gt; &lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;-listen&quot;&gt;🎧 Listen&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;&lt;a href=&quot;&quot;&gt; &lt;/a&gt;&lt;/em&gt; by &lt;em&gt;&lt;a href=&quot;&quot;&gt; &lt;/a&gt;&lt;/em&gt;
+&lt;em&gt;&lt;a href=&quot;&quot;&gt; &lt;/a&gt;&lt;/em&gt; by &lt;em&gt;&lt;a href=&quot;&quot;&gt; &lt;/a&gt;&lt;/em&gt;
+&lt;em&gt;&lt;a href=&quot;&quot;&gt; &lt;/a&gt;&lt;/em&gt; by &lt;em&gt;&lt;a href=&quot;&quot;&gt; &lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The full list can be found on &lt;a href=&quot;&quot;&gt;my beaker profile&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;-made&quot;&gt;🧰 Made&lt;/h1&gt;
+
+&lt;p&gt;Finished
+&lt;em&gt;&lt;a href=&quot;http://11-11.cca.edu&quot;&gt;11-11&lt;/a&gt;&lt;/em&gt; is a journal featuring noted, invited contributors in poetry, nonfiction, fiction, fine arts, and architecture and design. 11.11 brings consequential art and writing to a global audience, interrogating the consecution of art and culture and inviting reflection on creativity in its manifest forms in the 21st century.&lt;/p&gt;
+
+&lt;p&gt;Started
+&lt;em&gt;&lt;a href=&quot;&quot;&gt;Trumping Across America&lt;/a&gt;&lt;/em&gt; is a kickstarter project made for the make100
+&lt;em&gt;Starting &lt;a href=&quot;&quot;&gt;Color Theory Project&lt;/a&gt;&lt;/em&gt; by &lt;em&gt;&lt;a href=&quot;&quot;&gt; &lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>William Felker</name></author><summary type="html">2019 01</summary></entry><entry><title type="html">11.11</title><link href="http://gndclouds.cc/portfolio/2018/11/11/eleven-eleven.html" rel="alternate" type="text/html" title="11.11" /><published>2018-11-11T00:00:00+00:00</published><updated>2018-11-11T00:00:00+00:00</updated><id>http://gndclouds.cc/portfolio/2018/11/11/eleven-eleven</id><content type="html" xml:base="http://gndclouds.cc/portfolio/2018/11/11/eleven-eleven.html"></content><author><name>William Felker</name></author><category term="Design" /><summary type="html"></summary></entry><entry><title type="html">Happy Family</title><link href="http://gndclouds.cc/portfolio/2018/10/11/postcard.html" rel="alternate" type="text/html" title="Happy Family" /><published>2018-10-11T00:00:00+00:00</published><updated>2018-10-11T00:00:00+00:00</updated><id>http://gndclouds.cc/portfolio/2018/10/11/postcard</id><content type="html" xml:base="http://gndclouds.cc/portfolio/2018/10/11/postcard.html"></content><author><name>William Felker</name></author><category term="Design" /><summary type="html"></summary></entry><entry><title type="html">Infrastructuriol</title><link href="http://gndclouds.cc/portfolio/2018/10/11/Infrastructuriol.html" rel="alternate" type="text/html" title="Infrastructuriol" /><published>2018-10-11T00:00:00+00:00</published><updated>2018-10-11T00:00:00+00:00</updated><id>http://gndclouds.cc/portfolio/2018/10/11/Infrastructuriol</id><content type="html" xml:base="http://gndclouds.cc/portfolio/2018/10/11/Infrastructuriol.html"></content><author><name>William Felker</name></author><category term="Design" /><summary type="html"></summary></entry><entry><title type="html">Infrastructuriol</title><link href="http://gndclouds.cc/portfolio/2018/10/11/letter.html" rel="alternate" type="text/html" title="Infrastructuriol" /><published>2018-10-11T00:00:00+00:00</published><updated>2018-10-11T00:00:00+00:00</updated><id>http://gndclouds.cc/portfolio/2018/10/11/letter</id><content type="html" xml:base="http://gndclouds.cc/portfolio/2018/10/11/letter.html"></content><author><name>William Felker</name></author><category term="Design" /><summary type="html"></summary></entry><entry><title type="html">Telescope</title><link href="http://gndclouds.cc/portfolio/2018/10/11/telescope.html" rel="alternate" type="text/html" title="Telescope" /><published>2018-10-11T00:00:00+00:00</published><updated>2018-10-11T00:00:00+00:00</updated><id>http://gndclouds.cc/portfolio/2018/10/11/telescope</id><content type="html" xml:base="http://gndclouds.cc/portfolio/2018/10/11/telescope.html"></content><author><name>William Felker</name></author><category term="Design" /><summary type="html"></summary></entry></feed>
